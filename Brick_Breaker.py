@@ -15,7 +15,7 @@ BALL_RADIUS = 10
 LIVES_FONT = pygame.font.SysFont("comicsans", 40)
 
 class Paddle:
-    VEL = 5
+    VEL = 8
 
     def __init__(self, x, y, width, height, color):
         self.x = x
@@ -31,7 +31,7 @@ class Paddle:
         self.x = self.x + self.VEL * direction
 
 class Ball:
-    VEL = 5
+    VEL = 8
 
     def __init__(self, x, y, radius, color):
         self.x = x
