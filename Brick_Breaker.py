@@ -85,14 +85,14 @@ class Brick:
         return tuple(int(a + (b-a) * t) for a, b in zip(color_a, color_b))
 
 def draw(win, paddle, ball, bricks, lives):
-    win.fill("white")
+    win.fill([112, 128, 144])
     paddle.draw(win)
     ball.draw(win)
 
     for brick in bricks:
         brick.draw(win)
 
-    lives_text = LIVES_FONT.render(f"Lives: {lives}", 1, "black")
+    lives_text = LIVES_FONT.render(f"Vidas: {lives}", 1, "black")
     win.blit(lives_text, (10, HEIGHT - lives_text.get_height() - 10))
 
 
@@ -130,7 +130,7 @@ def generate_bricks(rows, cols):
     bricks = []
     for row in range(rows):
         for col in range(cols):
-            brick = Brick(col * brick_width + gap * col, row * brick_height + gap * row, brick_width, brick_height, 2, [(0, 255, 0), (255, 0, 0)])
+            brick = Brick(col * brick_width + gap * col, row * brick_height + gap * row, brick_width, brick_height, 2, [(61, 89, 171), (255, 0, 0)])
             bricks.append(brick)
 
     return bricks
@@ -196,12 +196,12 @@ def main():
             bricks = generate_bricks(3, 10)
             lives = 3
             reset()
-            display_text("You Lost!")
+            display_text("Você Perdeu!")
 
         if len(bricks) == 0:
             bricks = generate_bricks(3, 10)
             lives = 3
-            display_text("You Won!")
+            display_text("Você Venceu!")
 
         draw(win, paddle, ball, bricks, lives)
     
